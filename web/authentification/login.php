@@ -23,22 +23,33 @@ include __DIR__.'/startSession.php';
  <a class="btn btn-primary btn-lg" href="#" role="button">Créer un compte</a></p>
  </form>
 </div> -->
+<div class="row">
+	<div class="col-sm-6 col-sm-offset-3">
+    <h2>Se connecter</h2>
 
+		<hr/>
 <form method="post" action="login_process.php">
-    <label>Username:</label>
-    <input type="text" name="Username" />
+  <div class="form-group">
+    <label>Nom d'utilisateur :</label>
+    <input type="text" name="Username" class="form-control" />
     <br>
-
-    <label>Password:</label>
-    <input type="Password" name="Password" />
+  </div>
+  <div class="form-group">
+    <label>Mot de passe :</label>
+    <input type="Password" name="Password" class="form-control"/>
     <br>
-
-    <label>Remember me?:</label>
+  </div>
+  <div class="form-group">
+    <label>Se rappeler de moi ?:</label>
     <input type="checkbox" name="auto" />
     <br>
-
-    <input type="submit" value="login" />
+  </div>
+  <div class="form-group text-center">
+    <button type="submit" class="btn btn-primary"/>Se connecter</button>
+  </div>
   </form>
+</div>
+</div>
 
 <?php
 include __DIR__.'/../partial/footer.php';

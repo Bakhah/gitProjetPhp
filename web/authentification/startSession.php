@@ -7,7 +7,7 @@
     // Add database credentials
     $user->config->database->host = 'localhost';
     $user->config->database->user = 'usersql';
-    $user->config->database->password = 'pwdsql';
+    $user->config->database->password = 'pwduser';
     $user->config->database->name = 'PHP_PROJECT'; //Database name
 
     // OR if in your project you already have a PDO connection

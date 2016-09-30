@@ -22,14 +22,15 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <?php
-        if (!isset($_SESSION)) # A réécrire proprement
+        if ($_SESSION['userData']['data']['ID'] == 0) # A réécrire proprement
         {
           echo '<li><a href="../authentification/login.php">Connexion</a></li>';
+          echo '<li><a href="../authentification/register.php">Créer un compte</a></li>';
         }
         else
         {
           echo '<li><a class="navbar-brand" href="#">'.$_SESSION['userData']['data']['Username'].'</a></li>';
-          echo '<li><a href="#">Déconnexion</a></li>';
+          echo '<li><a href="../authentification/logout_process.php">Déconnexion</a></li>';
         }?>
 
       </ul>

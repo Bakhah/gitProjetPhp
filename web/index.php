@@ -8,12 +8,12 @@ include 'lib/connection.php';
 
   <?php
   echo "Projet de Louis Lalleau et Franck Hourdin";
-  GetMyConnection();
+  $con = GetMyConnection();
 
   $sql = 'SELECT * FROM product';
-  $req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
+  $req = mysqli_query($con, $sql);
   echo "<h3>Test d'affichage de la table product :</h3>";
-  while ($data = mysql_fetch_assoc($req)) {
+  while ($data = mysqli_fetch_assoc($req)) {
     echo '<br>'.$data[id].' '.$data[name].' '.$data[price].' '.$data[price].'€ '.$data[id_unit].'</br>';
   };
 

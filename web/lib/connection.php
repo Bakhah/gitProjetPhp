@@ -6,8 +6,8 @@
         global $g_link;
         if( $g_link )
             return $g_link;
-        $g_link = mysql_connect( 'localhost', 'usersql', 'pwduser') or die('Could not connect to server.' );
-        mysql_select_db('PHP_PROJECT', $g_link) or die('Could not select database.');
+        $g_link = mysqli_connect( 'localhost', 'usersql', 'pwduser', 'PHP_PROJECT') or die('Could not connect to server.' );
+        mysqli_select_db($g_link, 'PHP_PROJECT') or die('Could not select database.');
         return $g_link;
     }
 
@@ -15,7 +15,7 @@
     {
         global $g_link;
         if( $g_link != false )
-            mysql_close($g_link);
+            mysqli_close($g_link);
         $g_link = false;
     }
 
