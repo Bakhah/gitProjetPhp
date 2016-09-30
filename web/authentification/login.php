@@ -23,8 +23,13 @@ include __DIR__.'/startSession.php';
  <a class="btn btn-primary btn-lg" href="#" role="button">Créer un compte</a></p>
  </form>
 </div> -->
+
+
+</div>
 <div class="row">
-	<div class="col-sm-6 col-sm-offset-3">
+
+  <div class="col-md-7"></div>
+	<div class="col-md-4">
     <h2>Se connecter</h2>
 
 		<hr/>
@@ -51,7 +56,9 @@ include __DIR__.'/startSession.php';
   </div>
   </form>
 </div>
+<div class="col-md-1"></div>
 </div>
+
 
 <?php
 include __DIR__.'/../partial/footer.php';

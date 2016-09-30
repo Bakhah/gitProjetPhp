@@ -5,10 +5,10 @@ include __DIR__.'/startSession.php';
 
 	$d = @$_SESSION["regData"];
 	unset($_SESSION["regData"]);
-	echo "@";
 ?>
 <div class="row">
-	<div class="col-sm-6 col-sm-offset-3">
+	<div class="col-md-1"> </div>
+	<div class="col-md-6">
 		<h2>Créer un compte</h2>
 
 		<hr/>
@@ -43,4 +43,5 @@ include __DIR__.'/startSession.php';
 		</form>
 
 	</div>
+	<div class="col-md-5"></div>
 </div>
