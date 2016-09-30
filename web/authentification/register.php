@@ -9,36 +9,36 @@ include __DIR__.'/startSession.php';
 ?>
 <div class="row">
 	<div class="col-sm-6 col-sm-offset-3">
-		<h2>Register</h2>
+		<h2>Créer un compte</h2>
 
 		<hr/>
 
 		<form method="post" action="register_process.php" data-success="/login">
 			<div class="form-group">
-				<label>Username:</label>
+				<label>Nom d'utilisateur :</label>
 				<input name="Username" type="text" required class="form-control" autofocus>
 			</div>
 
 			<div class="form-group">
-				<label>Email: </label>
+				<label>Email : </label>
 				<input name="Email" type="text" required class="form-control">
 			</div>
 
 			<div class="form-group">
-				<label>Password:</label>
+				<label>Mot de passe :</label>
 				<input name="Password" type="password" required class="form-control">
 			</div>
 
 			<div class="form-group">
-				<label>Confirm Password:</label>
+				<label>Confirmation :</label>
 				<input name="Password2" type="password" required class="form-control">
 			</div>
 
 
 			<div class="form-group text-center">
-				<button type="submit" class="btn btn-primary">Register</button>
+				<button type="submit" class="btn btn-primary">Créer un compte</button>
 				<br>
-				<a href="/login" class="">Login</a>
+				<a href="login.php" class="">Se connecter</a>
 			</div>
 		</form>
 

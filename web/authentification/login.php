@@ -41,11 +41,13 @@ include __DIR__.'/startSession.php';
   </div>
   <div class="form-group">
     <label>Se rappeler de moi ?:</label>
-    <input type="checkbox" name="auto" />
+    <input type="checkbox" name="auto"/>
     <br>
   </div>
   <div class="form-group text-center">
     <button type="submit" class="btn btn-primary"/>Se connecter</button>
+    <br>
+    <a href="register.php" class="">Créer un compte</a>
   </div>
   </form>
 </div>
