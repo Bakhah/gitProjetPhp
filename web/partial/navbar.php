@@ -9,7 +9,6 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-
       <a class="navbar-brand" href="#">My Kitchen</a>
     </div>
 
@@ -17,7 +16,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
 
-        <li class="active"><a href="#">Accueil<span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="/../index.php">Accueil<span class="sr-only">(current)</span></a></li>
         <li><a href="#">Mes recettes</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -29,8 +28,8 @@
         }
         else
         {
-          echo '<li><a class="navbar-brand" href="#">'.$_SESSION['userData']['data']['Username'].'</a></li>';
-          echo '<li><a href="../authentification/logout_process.php">Déconnexion</a></li>';
+          echo '<li class="active"><a class="navbar-brand" href="#">'.$_SESSION['userData']['data']['Username'].'</a></li>';
+          echo '<li><a href="../authentification/logout_process.php">Se déconnecter</a></li>';
         }?>
 
       </ul>
