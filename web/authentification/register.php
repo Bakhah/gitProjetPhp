@@ -45,3 +45,7 @@ include __DIR__.'/startSession.php';
 	</div>
 	<div class="col-md-6"></div>
 </div>
+
+<?php
+include __DIR__.'/../partial/footer.php';
+?>
