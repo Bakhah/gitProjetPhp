@@ -8,8 +8,10 @@ $date = date("m-Y");
 
 
 $Calendar = new donatj\SimpleCalendar("October 2016");
-$Calendar->addDailyHtml("Midi : Tagliatelles bolognaise", "11-10-2016");
-$Calendar->addDailyHtml("Soir : Carpaccio de boeuf Frites", "11-10-2016");
+$Calendar->addDailyHtml("midday", "Tagliatelles bolognaise", "11-10-2016");
+$Calendar->addDailyHtml("evening","Carpaccio de boeuf Frites", "11-10-2016");
+
+
 
 echo "<h1>".$date."</h1>";
 echo "<div class=\"container\">";

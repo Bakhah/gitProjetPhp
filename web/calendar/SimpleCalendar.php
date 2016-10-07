@@ -53,7 +53,7 @@ class SimpleCalendar
      * @param string      $start_date_string Date string for when the event starts
      * @param null|string $end_date_string   Date string for when the event ends. Defaults to start date
      */
-    public function addDailyHtml($html, $start_date_string, $end_date_string = null)
+    public function addDailyHtml($day_moment, $html, $start_date_string, $end_date_string = null)
     {
         static $htmlCount = 0;
         $start_date = strtotime($start_date_string);
@@ -66,7 +66,8 @@ class SimpleCalendar
         do {
             $tDate = getdate($working_date);
             $working_date += 86400;
-            $this->dailyHtml[$tDate['year']][$tDate['mon']][$tDate['mday']][$htmlCount] = $html;
+            $this->dailyHtml[$tDate['year']][$tDate['mon']][$tDate['mday']][$day_moment] = $html;
+            print_r($this->dailyHtml);
         } while ($working_date < $end_date + 1);
         ++$htmlCount;
     }
@@ -130,14 +131,31 @@ class SimpleCalendar
             $dHtml_arr = false;
             $iterator = 0;
 
-            if (isset($this->dailyHtml[$this->now['year']][$this->now['mon']][$i])) {
+          /*  if (isset($this->dailyHtml[$this->now['year']][$this->now['mon']][$i])) {
                 $dHtml_arr = $this->dailyHtml[$this->now['year']][$this->now['mon']][$i];
             }
-            if (is_array($dHtml_arr)) {
+            /*if (is_array($dHtml_arr)) {
                 foreach ($dHtml_arr as $dHtml) {
                     $out .= '<div><p>'.$dHtml.'</p></div>';
                     ++$iterator;
                 }
+            }*/
+
+            if (isset($this->dailyHtml[$this->now['year']][$this->now['mon']][$i]['midday']))
+            {
+              $dHtml = $this->dailyHtml[$this->now['year']][$this->now['mon']][$i]['midday'];
+                $out .= '<div><form><input type="submit" id="midday" name="day_moment" value="'.$dHtml.'"></form></div>';
+            }
+            else {
+              $out .= '<div><form><input type="submit" id="midday" name="day_moment" value="+"></form></div>';
+            }
+            if (isset($this->dailyHtml[$this->now['year']][$this->now['mon']][$i]['evening']))
+            {
+              $dHtml = $this->dailyHtml[$this->now['year']][$this->now['mon']][$i]['evening'];
+                $out .= '<div><form><input type="submit" id="evening" name="day_moment" value="'.$dHtml.'"></form></div>';
+            }
+            else {
+              $out .= '<div><form><input type="submit" id="evening" name="day_moment" value="+"></form></div>';
             }
             while ($iterator < 2) {
                 $out .= '<div><p>&nbsp;</p></div>';
