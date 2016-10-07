@@ -67,7 +67,6 @@ class SimpleCalendar
             $tDate = getdate($working_date);
             $working_date += 86400;
             $this->dailyHtml[$tDate['year']][$tDate['mon']][$tDate['mday']][$day_moment] = $html;
-            print_r($this->dailyHtml);
         } while ($working_date < $end_date + 1);
         ++$htmlCount;
     }
@@ -100,6 +99,7 @@ class SimpleCalendar
      */
     public function show($echo = true)
     {
+
         if ($this->wday_names) {
             $wdays = $this->wday_names;
         } else {
@@ -131,35 +131,56 @@ class SimpleCalendar
             $dHtml_arr = false;
             $iterator = 0;
 
-          /*  if (isset($this->dailyHtml[$this->now['year']][$this->now['mon']][$i])) {
-                $dHtml_arr = $this->dailyHtml[$this->now['year']][$this->now['mon']][$i];
-            }
-            /*if (is_array($dHtml_arr)) {
-                foreach ($dHtml_arr as $dHtml) {
-                    $out .= '<div><p>'.$dHtml.'</p></div>';
-                    ++$iterator;
-                }
-            }*/
-
             if (isset($this->dailyHtml[$this->now['year']][$this->now['mon']][$i]['midday']))
             {
               $dHtml = $this->dailyHtml[$this->now['year']][$this->now['mon']][$i]['midday'];
-                $out .= '<div><form><input type="submit" id="midday" name="day_moment" value="'.$dHtml.'"></form></div>';
+                $out .= '<div>
+                          <form method="post" action="edit_event.php">
+                            <input type="hidden" name="day" value="'.$i.'">
+                            <input type="hidden" name="month" value="'.$this->now['mon'].'">
+                            <input type="hidden" name="year" value="'.$this->now['year'].'">
+                            <input type="hidden" name="recipe" value="'.$dHtml.'">
+                            <input type="hidden" name="moment" value="midday">
+                            <input type="submit" class="form-control" title="'.$dHtml.'" value="'.$dHtml.'">
+                          </form>
+                        </div>';
             }
             else {
-              $out .= '<div><form><input type="submit" id="midday" name="day_moment" value="+"></form></div>';
+
+              $out .= '<div>
+                        <form method="post" action="new_event.php">
+                          <input type="hidden" name="day" value="'.$i.'">
+                          <input type="hidden" name="month" value="'.$this->now['mon'].'">
+                          <input type="hidden" name="year" value="'.$this->now['year'].'">
+                          <input type="hidden" name="moment" value="midday">
+                          <input type="submit" class="form-control" title="Cliquez ici pour ajouter une recette" value="+">
+                        </form>
+                      </div>';
             }
             if (isset($this->dailyHtml[$this->now['year']][$this->now['mon']][$i]['evening']))
             {
               $dHtml = $this->dailyHtml[$this->now['year']][$this->now['mon']][$i]['evening'];
-                $out .= '<div><form><input type="submit" id="evening" name="day_moment" value="'.$dHtml.'"></form></div>';
+                $out .= '<div>
+                          <form method="post" action="edit_event.php">
+                            <input type="hidden" name="day" value="'.$i.'">
+                            <input type="hidden" name="month" value="'.$this->now['mon'].'">
+                            <input type="hidden" name="year" value="'.$this->now['year'].'">
+                            <input type="hidden" name="recipe" value="'.$dHtml.'">
+                            <input type="hidden" name="moment" value="evening">
+                            <input type="submit" class="form-control" title="'.$dHtml.'" value="'.$dHtml.'">
+                          </form>
+                        </div>';
             }
             else {
-              $out .= '<div><form><input type="submit" id="evening" name="day_moment" value="+"></form></div>';
-            }
-            while ($iterator < 2) {
-                $out .= '<div><p>&nbsp;</p></div>';
-                ++$iterator;
+              $out .= '<div>
+                        <form method="post" action="new_event.php">
+                          <input type="hidden" name="day" value="'.$i.'">
+                          <input type="hidden" name="month" value="'.$this->now['mon'].'">
+                          <input type="hidden" name="year" value="'.$this->now['year'].'">
+                          <input type="hidden" name="moment" value="evening">
+                          <input type="submit" class="form-control" title="Cliquez ici pour ajouter une recette" value="+">
+                        </form>
+                      </div>';
             }
             $out .= '</td>';
             if ($count > 6) {
