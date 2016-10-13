@@ -8,6 +8,7 @@ $year = $_POST['year'];
 $moment = $_POST['moment'];
 $recipe = $_POST['recipe'];
 
+$date = $year.'-'.sprintf("%02d", $month).'-'.sprintf("%02d", $day);
 
 $con = GetMyConnection();
 $sql = 'SELECT id, name FROM recipe';
@@ -32,7 +33,7 @@ CleanUpDB();
   <div class="form-group">
     <form method="post" action="show.php">
     <label for="sel1">Sélectionnez une recette dans la liste : </label>
-    <select class="form-control" id="id_recipe">
+    <select class="form-control" name="recipe_id">
     <?php
     while ($data = mysqli_fetch_assoc($req))
     {
@@ -40,7 +41,10 @@ CleanUpDB();
     }
     ?>
     <br>
-    <input type="submit" class="btn btn-primary" title="Modifier" value="Envoyer">
+    <input type="hidden" name="date" value="<?php echo $date; ?>">
+    <input type="hidden" name="day_moment" value="<?php echo $moment; ?>"><br>
+    <button type="submit" class="btn btn-primary" name="modify">Modifier</button>
+    <button type="submit" class="btn btn-warning" name="delete">Supprimer</button>
     </form>
   </div>
 </div>

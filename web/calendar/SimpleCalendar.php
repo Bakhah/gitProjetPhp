@@ -1,7 +1,9 @@
 <?php
 
+
 namespace donatj;
 
+include __DIR__.'/../lib/connection.php';
 /**
  * Simple Calendar.
  *
@@ -32,6 +34,20 @@ class SimpleCalendar
     public function __construct($date_string = null)
     {
         $this->setDate($date_string);
+        $this->updateDailyHtml();
+    }
+
+    public function updateDailyHtml()
+    {
+        $dailyHtml = NULL;
+        $con = GetMyConnection();
+        $sql = 'SELECT * FROM menu, recipe where (menu.id_recipe = recipe.id)';
+        $req = mysqli_query($con, $sql);
+
+        while ($data = mysqli_fetch_assoc($req)) {
+          $this->addDailyHtml($data[day_moment], $data[name], $data[jour]);
+        }
+        CleanUpDB();
     }
     /**
      * Sets the date for the calendar.
@@ -46,6 +62,29 @@ class SimpleCalendar
             $this->now = getdate();
         }
     }
+
+    public function updateMenu($recipe_id, $day, $day_moment)
+    {
+      $con = GetMyConnection();
+
+      $req = mysqli_query($con, 'SELECT * FROM menu where (jour = \''.$day.'\' AND day_moment = \''.$day_moment.'\')');
+      $recipe_name = mysqli_query($con, 'SELECT name from recipe where (id = '.$recipe_id.')');
+      if (mysqli_num_rows($req) > 0)
+      {
+        mysqli_query($con, 'DELETE from menu where (jour = \''.$day.'\' AND day_moment = \''.$day_moment.'\')');
+      }
+      mysqli_query($con, 'INSERT into menu values (NULL, \''.$day.'\', '.$recipe_id.', \''.$day_moment.'\')');
+      CleanUpDB();
+      $this->updateDailyHtml();
+    }
+
+    public function deleteMenu($day, $day_moment)
+    {
+      $con = GetMyConnection();
+      mysqli_query($con, 'DELETE from menu where (jour = \''.$day.'\' AND day_moment = \''.$day_moment.'\')');
+      CleanUpDB();
+      $this->updateDailyHtml();
+    }
     /**
      * Add a daily event to the calendar.
      *
@@ -53,20 +92,13 @@ class SimpleCalendar
      * @param string      $start_date_string Date string for when the event starts
      * @param null|string $end_date_string   Date string for when the event ends. Defaults to start date
      */
-    public function addDailyHtml($day_moment, $html, $start_date_string, $end_date_string = null)
+    public function addDailyHtml($day_moment, $html, $start_date)
     {
         static $htmlCount = 0;
-        $start_date = strtotime($start_date_string);
-        if ($end_date_string) {
-            $end_date = strtotime($end_date_string);
-        } else {
-            $end_date = $start_date;
-        }
         $working_date = $start_date;
         do {
-            $tDate = getdate($working_date);
-            $working_date += 86400;
-            $this->dailyHtml[$tDate['year']][$tDate['mon']][$tDate['mday']][$day_moment] = $html;
+            $tDate = date_parse($start_date);
+            $this->dailyHtml[$tDate['year']][$tDate['month']][$tDate['day']][$day_moment] = $html;
         } while ($working_date < $end_date + 1);
         ++$htmlCount;
     }

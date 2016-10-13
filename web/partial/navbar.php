@@ -17,7 +17,14 @@
       <ul class="nav navbar-nav">
 
         <li class="active"><a href="/../index.php">Accueil<span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Mes recettes</a></li>
+        <?php
+        if ($_SESSION['userData']['data']['ID'] == 0) { // A réécrire proprement
+
+        }
+        else
+        {
+          echo '<li><a href="../calendar/show.php">Calendrier</a></li>';
+        }?>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <?php
