@@ -28,8 +28,8 @@ include __DIR__.'/startSession.php';
 </div>
 <div class="row">
 
-  <div class="col-md-7"></div>
-	<div class="col-md-4">
+  <div class="col-md-8"></div>
+	<div class="col-md-3">
     <h2>Se connecter</h2>
 
 		<hr/>

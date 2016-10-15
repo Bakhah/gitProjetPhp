@@ -13,14 +13,15 @@
 	</head>
 	<body>
 		<h1>Je suis le header</h1>
-
+		<!--Formulaire : DEBUT-->
+		<form action="" method="post">
 		<!--Container : DEBUT-->
 		<div class="container form-horizontal">
 			<!--Champ recette : DEBUT-->
 			<div class="form-group form-group-lg">
 				<label class="control-label col-sm-2" for="nom">Recette :</label>
 				<div class="col-sm-4">
-					<input type="text" class="form-control" id="nom" placeholder="nom">
+					<input type="text" class="form-control" id="nom" name="nom" placeholder="nom" required>
 				</div>
 			</div>
 			<!--Champ recette : FIN-->
@@ -28,7 +29,7 @@
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="instruction">Instruction :</label>
 				<div class="col-sm-9">
-					<textarea class="form-control" rows="3" id="instruction"></textarea>
+					<textarea class="form-control" rows="3" id="instruction" required></textarea>
 				</div>
 			</div>
 			<!--Champ Inscrution : FIN-->
@@ -38,19 +39,39 @@
 				<div class="form-group product">
 					<label class="control-label col-sm-2" for="produit">Produit :</label>
 					<div class="col-sm-4">
-						<input type="text" class="form-control" name="produit" placeholder="libellé">
+						<select class="form-control" name="produit[]" required>
+							<?php include 'listeProduits.php' ; ?>
+						</select>
 					</div>
 					<div class="col-sm-2">
-						<input type="text" class="form-control" name="quantite" placeholder="qté">
+						<input type="text" class="form-control" name="quantite[]" placeholder="qté" required>
 					</div>
 					<div class="col-sm-2">
-						<input type="text" class="form-control" name="unite" placeholder="unité">
+						<input type="text" class="form-control" name="unite[]" placeholder="unité" required>
 					</div>
 					<button type="button" class="btn btn-danger supp_prod">Supprimer</button>
 				</div>
 				<!--Champ Produit 1 : FIN-->
-			</div>
+				<!--Champ Produit 2 : DEBUT-->
+				<div class="form-group product">
+					<label class="control-label col-sm-2" for="produit">Produit :</label>
+					<div class="col-sm-4">
+						<select class="form-control" name="produit[]" required>
+							<?php include 'listeProduits.php' ; ?>
+						</select>
+					</div>
+					<div class="col-sm-2">
+						<input type="text" class="form-control" name="quantite[]" placeholder="qté" required>
+					</div>
+					<div class="col-sm-2">
+						<input type="text" class="form-control" name="unite[]" placeholder="unité" required>
+					</div>
+					<button type="button" class="btn btn-danger supp_prod">Supprimer</button>
+				</div>
+				<!--Champ Produit 2 : FIN-->
+				
 			<!--Conteneur de produits : FIN-->
+
 			<!--Bouton Ajouter : DEBUT-->
 			<div class="	">
 				<button type="button" class="col-md-offset-2 btn btn-primary" id="ajoutProduit">Ajouter produit</button>
@@ -58,12 +79,17 @@
 			<!--Bouton Ajouter : FIN-->
 			<!--Bouton enregistrer : DEBUT-->
 			<div class="form-group">
-				<button type="button" class="btn btn-success" id="enregistrer">Enregistrer</button>
+				<input type="submit" class="btn btn-success" name="enregistrer" value="Enregistrer"></input>
 			</div>
 			<!--Bouton enregistrer : FIN-->
 		</div>
 		<!--Container : FIN-->
-
+	</form>
+	<!--Formulaire : FIN-->
+		<?php
+			include 'getfields.php';
+		?>
 
 	</body>
 </html>
+
