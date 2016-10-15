@@ -58,7 +58,8 @@ pour l'insertion d'une nouvelle recette et de ses besoins
 		echo "<p>id recipe : $id_recipe</p>";
 
 		foreach ($tab_produit as $produit) {
-			$sql = "INSERT INTO needs (id_product, quantity, id_recipe) VALUES ('$name','$instruction','$id_user')";
+			$sql = "INSERT INTO needs (id_product, quantity, id_recipe) VALUES ('$produit[0]','$produit[1]','$id_recipe')";
+			$req = mysqli_query($con, $sql) or die (mysql_error($con));
 		}
 		//On retire les saisies de $_POST
 		unset(
