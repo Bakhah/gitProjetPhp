@@ -28,7 +28,7 @@ $( document ).ready(function() {
       if($i>1){
         $(this).parent().remove();
       }else{
-        createAlert('alert-warning',"La recette doit avoir au moins un produit");
+        alert("La recette doit avoir au moins un produit");
       }
 	});
 
