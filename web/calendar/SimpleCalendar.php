@@ -98,6 +98,7 @@ class SimpleCalendar
         $working_date = $start_date;
         do {
             $tDate = date_parse($start_date);
+            $working_date += 86400; 
             $this->dailyHtml[$tDate['year']][$tDate['month']][$tDate['day']][$day_moment] = $html;
         } while ($working_date < $end_date + 1);
         ++$htmlCount;
