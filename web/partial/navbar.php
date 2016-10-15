@@ -24,6 +24,7 @@
         else
         {
           echo '<li><a href="../calendar/show.php">Calendrier</a></li>';
+          echo '<li><a href="../converter/show.php">Convertisseur</a></li>';
         }?>
       </ul>
       <ul class="nav navbar-nav navbar-right">

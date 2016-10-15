@@ -1,7 +1,6 @@
 
 <?php
 include __DIR__.'/../partial/header.php';
-include __DIR__.'/../authentification/startSession.php';
 require 'SimpleCalendar.php';
 
 $Calendar = new donatj\SimpleCalendar('October 2016');
@@ -18,13 +17,14 @@ if (isset($_POST))
     $Calendar->deleteMenu($_POST['date'], $_POST['day_moment']);
     header('Location:show.php');
   }
-
 }
 
 echo '<h1>'.$date.'</h1>';
 ?>
-
 <div class="container">
+  <div class="page-header">
+    <h1>Calendrier</h1>
+  </div>
 <div class="table-responsive">
 
 <?php

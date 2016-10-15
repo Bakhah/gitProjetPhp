@@ -17,7 +17,7 @@ $date = $year.'-'.sprintf("%02d", $month).'-'.sprintf("%02d", $day);
 ?>
 
 <div class="container">
-  <h3>Nouvelle recette pour le <?php echo $day; ?>/<?php echo $month; ?>/<?php echo $year; ?>
+  <h1>Nouvelle recette pour le <?php echo $day; ?>/<?php echo $month; ?>/<?php echo $year; ?>
     <?php if ($moment == 'midday') {
     echo 'midi';
 } else {
@@ -25,7 +25,8 @@ $date = $year.'-'.sprintf("%02d", $month).'-'.sprintf("%02d", $day);
 }
 
     ?>
-  </h3>
+  </h1><br>
+  <div class="jumbotron">
   <form method="post" action="show.php">
     <label for="sel1">Sélectionnez une recette dans la liste : </label>
     <select class="form-control" name="recipe_id">
@@ -38,8 +39,9 @@ $date = $year.'-'.sprintf("%02d", $month).'-'.sprintf("%02d", $day);
     <br>
     <input type="hidden" name="date" value="<?php echo $date; ?>">
     <input type="hidden" name="day_moment" value="<?php echo $moment; ?>"><br>
-    <button type="submit" class="btn btn-primary" name="modify">Ajouter la recette</button>
+    <button type="submit" class="btn btn-primary btn-lg" name="modify">Ajouter la recette</button>
   </form>
+</div>
 </div>
 <?php
 include __DIR__.'/../partial/footer.php';
