@@ -7,9 +7,9 @@
   echo "<h1>Nouvelle recette</h1>";
   $recipe = new recipe();
   $recipe->displaychamp();
-  
+
   //Recuperation des saisies
-  include __DIR__.'/../lib/getfields.php';
+  include __DIR__.'/../lib/enr-recette.php';
 ?>
 
 
