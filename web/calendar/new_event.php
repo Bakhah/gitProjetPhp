@@ -40,6 +40,7 @@ $date = $year.'-'.sprintf("%02d", $month).'-'.sprintf("%02d", $day);
     <input type="hidden" name="date" value="<?php echo $date; ?>">
     <input type="hidden" name="day_moment" value="<?php echo $moment; ?>"><br>
     <button type="submit" class="btn btn-primary btn-lg" name="modify">Ajouter la recette</button>
+    <a class="btn btn-success btn-lg" href="../saisie/recette.php">Créer une recette</a>
   </form>
 </div>
 </div>

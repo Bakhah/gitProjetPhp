@@ -17,6 +17,7 @@ CleanUpDB();
 ?>
 
 <div class="container">
+  <div class="page-header">
   <h1>Modifier recette pour le <?php echo $day; ?>/<?php echo $month; ?>/<?php echo $year; ?>
     <?php if ($moment == 'midday')
     {
@@ -26,7 +27,8 @@ CleanUpDB();
     echo 'soir :';
     }
     ?>
-  </h2>
+  </h1>
+</div>
 
 
 <br><br>
@@ -46,6 +48,7 @@ CleanUpDB();
     <input type="hidden" name="day_moment" value="<?php echo $moment; ?>"><br>
     <button type="submit" class="btn btn-primary btn-lg" name="modify">Modifier</button>
     <button type="submit" class="btn btn-warning btn-lg" name="delete">Supprimer</button>
+    <a class="btn btn-success btn-lg" href="../saisie/recette.php">Créer une recette</a>
     </form>
   </div>
 </div>

@@ -1,11 +1,9 @@
 
-<footer class="footer">
-<nav class="navbar navbar-default navbar-static-bottom" style="margin-bottom: 50px ;">
+<nav class="navbar navbar-default navbar-fixed-bottom">
   <div class="container">
-    <p class="navbar-text navbar-right">Louis Lalleau et Franck Hourdin</p><p class="navbar-brand navbar-right">Projet PHP</p>
+      <p class="navbar-text navbar-right"><strong>Projet PHP</strong> - Louis Lalleau et Franck Hourdin</p>
   </div>
 </nav>
-</footer>
 
 </body>
 
