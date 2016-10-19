@@ -17,6 +17,7 @@ CleanUpDB();
 ?>
 
 <div class="container">
+  <div class="page-header">
   <h1>Modifier recette pour le <?php echo $day; ?>/<?php echo $month; ?>/<?php echo $year; ?>
     <?php if ($moment == 'midday')
     {
@@ -26,7 +27,8 @@ CleanUpDB();
     echo 'soir :';
     }
     ?>
-  </h2>
+  </h1>
+</div>
 
 
 <br><br>
