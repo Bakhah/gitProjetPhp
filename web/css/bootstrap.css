@@ -13,7 +13,7 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 body {
-  padding-bottom: 70px;
+  padding-bottom: 50px;
   margin: 0;
 }
 article,
@@ -6845,3 +6845,5 @@ footer {
   margin-top: 100px;
   background-color: #f5f5f5;
 }
+
+.navbar-fixed-bottom > .navbar-brand {padding: 5px 5px;}

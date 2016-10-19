@@ -1,10 +1,7 @@
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
   <div class="container">
-    <p class="text-muted">
-      <p class="navbar-text navbar-right">Louis Lalleau et Franck Hourdin</p>
-      <p class="navbar-brand navbar-right">Projet PHP</p>
-    </p>
+      <p class="navbar-text navbar-right"><strong>Projet PHP</strong> - Louis Lalleau et Franck Hourdin</p>
   </div>
 </nav>
 

@@ -19,26 +19,33 @@
         <li class="active"><a href="/../index.php">Accueil<span class="sr-only">(current)</span></a></li>
         <?php
         if ($_SESSION['userData']['data']['ID'] == 0) { // A réécrire proprement
-
         }
         else
         {
-          echo '<li><a href="../calendar/show.php">Calendrier</a></li>';
-          echo '<li><a href="../converter/show.php">Convertisseur</a></li>';
-        }?>
+        ?>
+          <li><a href="../converter/show.php">Mes recettes</a></li>
+          <li><a href="../calendar/show.php">Calendrier</a></li>
+          <li><a href="../converter/show.php">Convertisseur</a></li>
+        <?php
+        }
+        ?>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <?php
-        if ($_SESSION['userData']['data']['ID'] == 0) { // A réécrire proprement
-          echo '<li><a href="../authentification/login.php">Connexion</a></li>';
-          echo '<li><a href="../authentification/register.php">Créer un compte</a></li>';
+        if ($_SESSION['userData']['data']['ID'] == 0) {
+        ?>
+          <li><a href="../authentification/login.php">Connexion</a></li>
+          <li><a href="../authentification/register.php">Créer un compte</a></li>
+        <?php
         }
         else
         {
-          echo '<li class="active"><a class="navbar-brand" href="#">'.$_SESSION['userData']['data']['Username'].'</a></li>';
-          echo '<li><a href="../authentification/logout_process.php">Se déconnecter</a></li>';
-
-        }?>
+        ?>
+          <li class="active"><a class="navbar-brand" href="#"><?php echo $_SESSION['userData']['data']['Username'];?></a></li>
+          <li><a href="../authentification/logout_process.php">Se déconnecter</a></li>
+        <?php
+        }
+        ?>
 
       </ul>
     </div><!-- /.navbar-collapse -->

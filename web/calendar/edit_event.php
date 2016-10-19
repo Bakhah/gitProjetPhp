@@ -48,6 +48,7 @@ CleanUpDB();
     <input type="hidden" name="day_moment" value="<?php echo $moment; ?>"><br>
     <button type="submit" class="btn btn-primary btn-lg" name="modify">Modifier</button>
     <button type="submit" class="btn btn-warning btn-lg" name="delete">Supprimer</button>
+    <a class="btn btn-success btn-lg" href="../converter/show.php">Créer une recette</a>
     </form>
   </div>
 </div>
