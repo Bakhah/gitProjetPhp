@@ -107,6 +107,7 @@
           <!--Bouton Ajouter : DEBUT-->
           <div class=''>
             <button type='button' class='col-md-offset-2 btn btn-primary' id='ajoutProduit'>Ajouter produit</button>
+            <a class='btn btn-warning' href='../saisie/produit.php'>Créer nouveau produit</a>
           </div>
           <!--Bouton Ajouter : FIN-->";
           // Ajout du bouton Enregistrer
@@ -114,7 +115,7 @@
           <!--Bouton enregistrer : DEBUT-->
   				<div class='form-group'>
   					<div class=''>
-  						<input type='submit' class='btn btn-success' name='enregistrer' value='Enregistrer'></input>
+  						<input type='submit' class='btn btn-success btn-lg' name='enregistrer' value='Enregistrer'></input>
   					</div>
   				</div>
           <!--Bouton enregistrer : FIN-->

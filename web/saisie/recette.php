@@ -4,7 +4,7 @@
 	include __DIR__.'/../partial/header.php';
   include __DIR__.'/../lib/recipe.php';
 
-  echo "<h1>Nouvelle recette</h1>";
+  echo "<div class='container'><h1>Nouvelle recette</h1></div><br>";
   $recipe = new recipe();
   $recipe->displaychamp();
 

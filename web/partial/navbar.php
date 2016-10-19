@@ -23,7 +23,7 @@
         else
         {
         ?>
-          <li><a href="../converter/show.php">Mes recettes</a></li>
+          <li><a href="../saisie/recette.php">Créer une recette</a></li>
           <li><a href="../calendar/show.php">Calendrier</a></li>
           <li><a href="../converter/show.php">Convertisseur</a></li>
         <?php

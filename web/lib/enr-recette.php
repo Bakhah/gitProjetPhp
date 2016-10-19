@@ -11,8 +11,6 @@ $_POST['nom'],
 $_POST['instruction'],
 $_POST['produit'],
 $_POST['quantite'])){
-	//Debug
-	echo "<p>in</p>";
 
 	//On recupère les saisies
 	$name 				= $_POST['nom'];
@@ -51,8 +49,6 @@ $_POST['quantite'])){
 	$req = mysqli_query($con, $sql) or die (mysql_error($con));
 	$result = mysqli_fetch_assoc($req);
 	$id_recipe = $result['id'];
-	//Debug
-	echo "<p>id recipe : $id_recipe</p>";
 
 	//On ajoute les besoins
 	foreach ($tab_produit as $produit) {
@@ -68,6 +64,4 @@ $_POST['quantite'])){
 	$_POST['quantite']
 );
 }
-//Debug
-else{echo "<p>out</p>";}
 ?>
