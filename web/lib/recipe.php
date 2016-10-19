@@ -1,4 +1,6 @@
 <?php
+
+
   class recipe{
     private $id;
     private $name;
@@ -23,6 +25,7 @@
     * ou pour une création de nouvelle recette (ne pas utiliser de paramètres)
     */
     function displaychamp($name,$instruction,$product_tab){
+      include __DIR__.'/../lib/listeProduits.php';
       echo "
       <!--Container : DEBUT-->
       <div class='container form-horizontal'>
@@ -73,9 +76,6 @@
                   <div class='col-sm-2'>
                     <input type='text' class='form-control prod_quantity' name='quantite[]' value= $product[1] required>
                   </div>
-                  <div class='col-sm-2'>
-                    <input type='text' class='form-control prod_unite' name='unite[]' value= $product[2] required>
-                  </div>
                   <button type='button' class='btn btn-danger supp_prod'>Supprimer</button>
                 </div>
                 <!--Champ $product[0] : FIN-->";
@@ -86,13 +86,15 @@
               <div class='form-group product'>
                 <label class='control-label col-sm-2' for='produit'>Produit :</label>
                 <div class='col-sm-4'>
-                  <input type='text' class='form-control' name='produit[]' placeholder='libellé' required>
+                  <select class='form-control' name='produit[]' required>";
+                    foreach ($liste_produit as $produit) {
+                      echo "<option value='$produit[0]'>$produit[1] / $produit[2]</option>";
+                    }
+                  echo "
+                  </select>
                 </div>
                 <div class='col-sm-2'>
                   <input type='text' class='form-control' name='quantite[]' placeholder='qté' required>
-                </div>
-                <div class='col-sm-2'>
-                  <input type='text' class='form-control' name='unite[]' placeholder='unité' required>
                 </div>
                 <button type='button' class='btn btn-danger supp_prod'>Supprimer</button>
               </div>
@@ -115,6 +117,7 @@
   						<input type='submit' class='btn btn-success' name='enregistrer' value='Enregistrer'></input>
   					</div>
   				</div>
+          <!--Bouton enregistrer : FIN-->
         </form>
         <!--Formulaire : FIN-->
       </div>
