@@ -25,13 +25,15 @@ $_POST['prix'])){
 	*/
   $sql = "INSERT INTO product (name, price, id_unit) VALUES ('$name',$prix,'$unite')";
   $req = mysqli_query($con, $sql) or die (mysql_error());
-
+  //On ferme la connexion
+  CleanUpDB();
 
   //On retire les saisies de $_POST
   unset(
   $_POST['enregistrer'],
   $_POST['nom'],
   $_POST['unite']
-);
+	);
+	
 }
 ?>

@@ -55,7 +55,10 @@ $_POST['quantite'])){
 		$sql = "INSERT INTO needs (id_product, quantity, id_recipe) VALUES ('$produit[0]','$produit[1]','$id_recipe')";
 		$req = mysqli_query($con, $sql) or die (mysql_error($con));
 	}
-	//On retire les saisies de $_POST
+    //On ferme la connexion
+    CleanUpDB();
+	
+    //On retire les saisies de $_POST
 	unset(
 	$_POST['enregistrer'],
 	$_POST['nom'],
