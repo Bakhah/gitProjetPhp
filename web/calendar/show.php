@@ -8,7 +8,7 @@ $Calendar = new donatj\SimpleCalendar('October 2016');
 if (isset($_POST))
 {
 
-  if (isset($_POST['modify']))
+  if (isset($_POST['modify'])) //appel des fonctions correspondantes selon choix user
   {
     $Calendar->updateMenu($_POST['recipe_id'], $_POST['date'], $_POST['day_moment']);
   }
@@ -28,7 +28,7 @@ echo '<h1>'.$date.'</h1>';
 <div class="table-responsive">
 
 <?php
-$Calendar->show();
+$Calendar->show(); //fonction d'affichage du calendrier
 ?>
 
 </div></div>

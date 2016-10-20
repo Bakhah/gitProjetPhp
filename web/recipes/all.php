@@ -2,7 +2,7 @@
 include '../partial/header.php';
 include '../lib/connection.php';
 
-$con = GetMyConnection();
+$con = GetMyConnection(); //récupère toutes les recettes
 $sql = 'SELECT * FROM recipe';
 $recipes = mysqli_query($con, $sql);
 $count = 0;
@@ -10,12 +10,12 @@ $count = 0;
 
 <div class="container">
   <div class="page-header">
-      <h1>Toutes les recettes</h1>
+      <h1>Toutes les recettes</h1> <!-- affichage de toutes les recettes-->
   </div>
   <a href="../saisie/recette.php" class="btn btn-success">Créer une nouvelle recette</a><br><br>
   <div class="row">
     <?php
-    while ($data = mysqli_fetch_assoc($recipes))
+    while ($data = mysqli_fetch_assoc($recipes)) //Affichage 3 par 3 grâce à row
     { ?>
       <div class="col-md-3">
         <div class="col-md-4">
@@ -26,7 +26,7 @@ $count = 0;
         </div>
         <p> <?php echo $data[instruction]; ?></p>
         <p>
-          <?php
+          <?php //Récupération des produits de la recette en cours
           $prod = mysqli_query($con, "SELECT * FROM product, needs where (needs.id_recipe = ".$data[id]." AND product.id = needs.id_product)");
           while ($prod_data = mysqli_fetch_assoc($prod))
           {
