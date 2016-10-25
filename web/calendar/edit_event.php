@@ -17,7 +17,7 @@ CleanUpDB();
 ?>
 
 <div class="container">
-  <div class="page-header">
+  <div class="page-header"> <!-- Récupération de la date et du moment -->
   <h1>Modifier recette pour le <?php echo $day; ?>/<?php echo $month; ?>/<?php echo $year; ?>
     <?php if ($moment == 'midday')
     {
@@ -38,7 +38,7 @@ CleanUpDB();
     <label for="sel1">Sélectionnez une recette dans la liste : </label>
     <select class="form-control" name="recipe_id">
     <?php
-    while ($data = mysqli_fetch_assoc($req))
+    while ($data = mysqli_fetch_assoc($req)) //affichage sous forme de dropbown de toutes les recettes
     {
       echo '<option value="'.$data[id].'">'.$data[name].'</option>';
     }

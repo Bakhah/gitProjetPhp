@@ -13,9 +13,9 @@ $_POST['produit'],
 $_POST['quantite'])){
 
 	//On recupère les saisies
-	$name 				= $_POST['nom'];
-	$instruction 	= $_POST['instruction'];
-	$tab_libelle 	= $_POST['produit'];
+	$name 				= htmlspecialchars($_POST['nom'], ENT_QUOTES);
+	$instruction 	= htmlspecialchars($_POST['instruction'], ENT_QUOTES);
+	$tab_libelle 	= htmlspecialchars($_POST['produit'], ENT_QUOTES);
 	$tab_quantite = $_POST['quantite'];
 
 	//On crée un tableau de produit composé d'un libellé, d'une quantité et d'une unité
